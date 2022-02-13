@@ -1,0 +1,57 @@
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& nums) {
+        pair<int,int> P;
+        vector<vector<int>> apple;
+        stack<pair<int,int>> S;
+        int i = 1;
+        if(nums.size() == 0)return apple;
+        //cout<<(S.top()).first;
+        sort(nums.begin(),nums.end());
+        P.first = nums[0][0];
+        P.second = nums[0][1];
+        
+        S.push(P);
+        while( i < nums.size())
+        {
+            if(S.top().second >= nums[i][0])
+                
+            {
+                if(S.top().second > nums[i][1]){ i++;continue;}
+                
+                else {S.top().second = nums[i][1];}
+            }
+            else 
+            {
+                P.first = nums[i][0];
+                P.second = nums[i][1];
+                S.push(P);
+            }
+            i++;
+            
+        }
+        i = 0;
+        int a;
+        int b;
+        vector<int> temp {0,0};
+        
+        while(!S.empty())
+        {
+            a = S.top().first;
+            b = S.top().second;
+           temp[0] = a;
+            temp[1] =b;
+            apple.push_back(temp);
+            
+           
+            
+            i++;
+            S.pop();
+            
+        }
+        return apple;
+       
+                
+        
+    }
+};
