@@ -1,0 +1,69 @@
+class Solution {
+public:
+    bool wordPattern(string pat, string s) {
+        int z = 0;
+        for(auto it:s)
+        {
+            if(it == 32)z++;
+        }
+        if(z!=pat.size() - 1)return false;
+        map<char,string> m;
+        int i = 0;
+        string str = "";
+        bool ans = true;
+        int j = 0;
+        while(i<pat.size())
+        {
+            str = "";
+            while(j<s.size())
+            {
+                if(s[j] == 32 )break;
+                else str+=s[j];
+                j++;
+                
+            }
+            j++;
+        
+         if(m.find(pat[i]) == m.end())
+             {
+          bool a = false;  
+             for(auto p:m)
+             {
+                 if(p.second == str)a = true;
+             }
+             if(a == false)
+             {
+                 m[pat[i]] = str;
+                 i++;
+             }
+             else 
+             {
+                 ans = false;
+                 
+             }
+             
+             }
+        else
+            {
+               if(m[pat[i]] != str)
+                  {
+                      ans = false;
+                      i = pat.size();
+                 
+                  }
+                  else 
+                  {    
+                      i++;
+                    
+                  }
+            }
+            
+        }
+        {
+            cout<<i<<j;return ans;
+        }
+       
+    
+        
+    }
+};
