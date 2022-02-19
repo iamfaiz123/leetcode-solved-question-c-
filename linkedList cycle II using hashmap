@@ -1,0 +1,38 @@
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) 
+    {
+        map<ListNode*,int> m;
+        ListNode *apple = NULL;
+        bool flag = false;
+        while(true)
+        {
+            
+        if(head == NULL)
+            {
+               flag = true; 
+                break;
+            }
+        else 
+            {
+                if(m.find(head) !=m.end())
+                {
+                    auto it = m.find(head);
+                    apple = it->first;
+                    break;
+                }
+        else 
+                {
+                 m[head]++;
+                }
+             }
+        head = head->next;
+        }
+        if(flag == true)return NULL;
+        else return apple;
+    }
+            
+        
+        
+    
+};
