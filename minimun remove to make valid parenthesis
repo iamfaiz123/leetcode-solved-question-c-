@@ -1,0 +1,47 @@
+class Solution {
+public:
+    string minRemoveToMakeValid(string se) {
+            vector<int> temp ;
+            stack<int> index;
+            stack<char> s;
+            int i = 0;
+            while(se[i]!='\0')
+            {
+                    if(se[i] == '('){ s.push(se[i]);index.push(i); }
+                    else if(se[i] == ')')
+                    {
+                            if(!s.empty())
+                            {
+                               char a = s.top();
+                               if(a == '('){ s.pop();index.pop(); }
+                               else temp.push_back(i);
+                            }
+                            else temp.push_back(i);
+                            
+                            
+                    }
+                    else int a = 0;// just to pass
+                    i++;
+            }
+            for(auto i : temp)
+            {
+                    se[i] = '0';
+            }
+            while(!index.empty())
+            {
+                    int a = index.top();
+                    se[a] = '0';
+                    index.pop();
+            }
+            string str = "";
+            i = 0;
+            while(se[i]!= '\0')
+            {
+                if(se[i]!='0')str+=se[i];
+                i++;
+            }
+            
+            return str;
+        
+    }
+};
