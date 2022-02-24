@@ -1,0 +1,49 @@
+class cll
+{
+  public:
+     int data;
+     cll* next;
+     cll(int val)
+     { 
+           data = val;
+           next = NULL;
+      }
+        
+};
+class Solution {
+public:
+    int findTheWinner(int n, int k) {
+            if(k == 1)return n; // took me long time to figure this out ;>
+            int a = 1;
+          cll * head = new cll(a);
+            
+            auto current = head;
+           while(n!=0) 
+           {   
+                n--;
+                  if(n == 0){ current->next = head;break; }
+               current->next = new cll(++a);
+               current = current->next;
+              
+                   
+           }
+            
+            k-=1;
+            current = head;
+            auto prev = head;
+          while(current->next!=current)
+          {
+            int a = 0;
+            while(a!=k)
+            {
+                 prev = current;
+                 current = current->next;
+                 a++;
+            }
+             prev->next = current->next;
+             current = current->next;
+          }
+            return current->data;
+            
+   }
+};
