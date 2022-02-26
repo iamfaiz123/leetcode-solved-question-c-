@@ -1,0 +1,40 @@
+
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+
+       vector<int> result;
+         if(!root)
+        {
+            return result;
+        }
+        queue<TreeNode*> q;  
+        q.push(root);
+        while(!q.empty())
+        {
+            long count=q.size();
+            for(int i=0;i<count;i++)
+            { 
+                TreeNode* top=q.front();
+                q.pop();
+                
+                if(top->left!=NULL)
+                {
+                    q.push(top->left);
+                }
+                if(top->right!=NULL)
+                {
+                    q.push(top->right);
+                }
+                if(i==count-1)
+                {
+                    result.push_back(top->val);
+                }
+                    
+            }
+         
+        }
+            return result;
+    }
+
+};
