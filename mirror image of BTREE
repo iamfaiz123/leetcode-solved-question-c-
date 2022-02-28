@@ -1,0 +1,21 @@
+class solution:
+static tree(TreeNode* &A,TreeNode* &B)
+{ 
+  if(A or B)
+  {
+    swap(A,B);
+    if(A)tree(A->left,A->right);
+    if(B)tree(B->left,B->right);
+  }
+  else return;
+}
+
+TreeNode* MirrorImage(TreeNode* root)
+{ 
+  if(!root)return root;
+  else 
+  {
+    tree(root->left,root->right);
+    return root;
+    }
+    };
