@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int minDeletions(string s) {
+        sort(s.begin(),s.end());
+        map<char,int> m;
+        int i = 0;
+        while(s[i]!='\0')
+        {
+            m[s[i]]++;
+            i++;
+        }
+        vector<int> apple;
+        for(auto it:m)
+        {
+            apple.push_back(it.second);
+        }
+        sort(apple.begin(),apple.end());
+        map<int,int> m2;
+        int count = 0;
+        for(auto it : apple)
+        {   
+            if(m2.find(it)==m2.end()){ m2[it]++;continue; }
+            else 
+            {
+                int a  = it;
+                while(m2.find(a) != m2.end())
+                {
+                    a--;
+                    count++;
+                }
+                if(a == 0)continue;
+                m2[a]++;
+            }
+            
+        }
+        return count;
+        
+        
+    }
+};
