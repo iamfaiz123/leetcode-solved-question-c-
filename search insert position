@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& A, int B) {
+            int l=0,r=A.size(),mid; 
+   while(l<r){
+    mid = (l+r)/2; 
+    if(A[mid]==B) return mid; 
+    if(A[mid]<B) l=mid+1;
+    else r=mid;
+}
+return l;
+    
+}
+        
+    
+};
