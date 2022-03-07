@@ -1,0 +1,28 @@
+class Solution {
+
+   public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        vector ans(nums.size(),0);
+        int start = 0;
+        int end = nums.size()-1;
+        int n = end;
+        while(n>=0)
+        {
+            if(abs(nums[start])>abs(nums[end]))
+               {
+                   ans[n] = nums[start]*nums[start];
+                   start++;
+                   n--;
+            }
+            else 
+            {
+                ans[n] = nums[end]*nums[end];
+                n--;
+                end--;
+                
+            }
+        }
+        return ans;
+        
+    }
+};
