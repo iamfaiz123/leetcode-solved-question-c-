@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        int i =0;
+        string apple="";
+        string ans="";
+        int n = s.size();
+        while(i<n)
+        {
+            while(s[i]!=32 and i<n)
+            {
+                apple+=s[i];
+                i++;
+            }
+            reverse(apple.begin(),apple.end());
+            if(s[i] == 32) ans+=apple+" ";
+            else ans+=apple;
+           
+            apple="";
+            i++;
+        }
+        
+        return ans;
+        
+    }
+};
