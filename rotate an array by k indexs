@@ -1,0 +1,23 @@
+class Solution {
+public:
+ void rotate(vector<int>& nums, int k) 
+{
+    /*create a reference array since we'll be making changes to nums array & we will 
+    old values to be refered*/
+    vector<int> referenceArr = nums;
+    
+    //newIndex is the index where we want to shift every element by 'k' steps
+    int newIndex = -1;
+    
+    //iterating through the vector
+    for(int i=0; i<nums.size(); i++)
+    {
+        //shift the element by 'k' steps and modulo by size of array
+        /* we are using modulo because if array size is 7 and we are shifting element by             14 spaces then we get the original array. Thus, it makes no sense to loop since             the final and initial array would be same*/
+        newIndex = (i+k)%(nums.size());
+        
+        //use the reference array to still access the old values
+        nums[newIndex] = referenceArr[i];
+    }
+}
+};
