@@ -1,0 +1,13 @@
+class solution
+{
+public:
+ int fun(u_int32_t n)
+ 
+ {
+ for (int i = 0;i<32;i++)
+ {
+  if(n&1)count++;
+  n>>=1;
+  }
+  return count;
+  }
