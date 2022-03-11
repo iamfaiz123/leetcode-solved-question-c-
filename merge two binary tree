@@ -1,0 +1,38 @@
+////using extra space, copied from dissussion form
+   if(!root1 && !root2)return NULL;
+        TreeNode* root;
+        if(root1 && root2){
+             root = new TreeNode(root1->val+root2->val);
+        }
+        if(!root1 && root2 ){
+             root = new TreeNode(root2->val);
+        }
+        if( !root2 && root1){
+             root = new TreeNode(root1->val);
+        }
+        TreeNode* leftchild = mergeTrees(root1?root1->left:NULL,root2?root2->left:NULL);
+        TreeNode* rightchild = mergeTrees(root1?root1->right:NULL,root2?root2->right:NULL);
+        root->left = leftchild;
+        root->right = rightchild;
+        return root;
+        
+        
+        
+        
+        ////my solution with zero space
+        public:
+    static void merge(TreeNode*& A,TreeNode*& B)
+    {
+        if(A and B) A->val = A->val+B->val;
+        if(A and !B)A = A;
+        if(!A and B)A = B;
+        if(A and B)merge(A->left,B->left);
+        if(A and B)merge(A->right,B->right);
+        return;
+    }
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        merge(root1,root2);
+        return root1;
+        
+    }
+};
