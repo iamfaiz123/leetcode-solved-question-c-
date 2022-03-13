@@ -1,0 +1,24 @@
+class Solution {
+public:
+    ///question can be easly solved using back traking
+    vector<vector<int>> apple;
+    void generate(vector<int>&nums,vector<int>&subset,int i)
+    {
+        if(i == nums.size())
+        {
+            apple.push_back(subset);
+            return ;
+        }
+        generate(nums,subset,i+1);
+        subset.push_back(nums[i]);
+        generate(nums,subset,i+1);
+        subset.pop_back();
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> subset;
+        generate(nums,subset,0);
+        return apple;
+        
+        
+    }
+};
