@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int apple[2];
+    void bs(vector<int>&nums,int target,int start,int end)
+    {
+        if(start>end){apple[0] = -1;apple[1] = -1; return;}
+        int mid = (start+end)/2;
+        if(nums[mid] == target)
+        {
+            int a = mid;
+            int b = mid;
+            while(nums[a] == target)a++;
+            while(nums[b] == target)b--;
+            apple[0] = --a;
+            apple[1] = ++b;
+            return ;
+        }
+        else if(nums[mid]<target) bs(nums,target,mid+1,end);
+        else bs(nums,target,start,mid-1);
+        
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+        bs(nums,target,0,nums.size()-1);
+        vector<int> banana;
+        banana.push_back(apple[1]);
+        banana.push_back(apple[0]);
+        return banana;
+        
+    }
+};
