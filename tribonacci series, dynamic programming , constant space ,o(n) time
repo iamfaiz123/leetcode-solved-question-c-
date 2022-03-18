@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int tribonacci(int n) {
+        int low = 0;
+        int mid = 1;
+        int high = 1;
+        int current = high+low+mid;
+        if(n == 0)return low;
+        if(n == 1)return mid;
+        if(n == 2)return high;
+        if(n == 3)return current;
+        for(int i =3;i<=n;i++)
+        {
+            current = high+low+mid;
+            low = mid;
+            mid = high;
+            high = current;
+            
+        }
+        return current;
+        
+    }
+};
