@@ -1,8 +1,9 @@
 # iamfaizalkhn@gamil.com
-## I love to solved DSA questions a lot
+## I have been solving DSA question a lot since past year But since i joined my current organization i don't get much time to do as i spend lot of my free time in backend , blockchain and system Design
 
 Well altough i am familiar with javascript , Python and Rust
-but when it comes to DSA c++ is my choice
+but when it comes to DSA c++ is my choice, Javascript and python is dynamic type language so it becomes pain to understand the flow sometimes.
+rust is good but its functional programming and borrow checker system becomes bane to write code somethings that is why c++ is best choice for writing small code.
 
 ## why? 
 >1. well c++ STL provides seamless datastructure and easy methods.
